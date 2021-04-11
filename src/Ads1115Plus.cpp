@@ -12,7 +12,7 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 
 
-#include "ads1115_plus.h"
+#include "Ads1115Plus.h"
 
 
 byte Ads1115Plus::i2cReadByte() {
