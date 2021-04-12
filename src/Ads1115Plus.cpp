@@ -152,19 +152,19 @@ void Ads1115Plus::startComparatorMode(byte channel, uint16_t highThreshold, uint
     startComparatorModeOnMux((MuxConfig)mux, highThreshold, lowThreshold, comparatorLatching, comparatorMode, comparatorPolarity, comparatorQueue);
 }
 
-void Ads1115Plus::startComparatorMode01(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching = ComparatorLatchingConfig::nonLatching, ComparatorModeConfig comparatorMode = ComparatorModeConfig::traditionalComparator, ComparatorPolarityConfig comparatorPolarity = ComparatorPolarityConfig::activeLow, ComparatorAssertConfig comparatorQueue = ComparatorAssertConfig::assertAfterOne) {
+void Ads1115Plus::startComparatorMode01(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching, ComparatorModeConfig comparatorMode, ComparatorPolarityConfig comparatorPolarity, ComparatorAssertConfig comparatorQueue) {
     startComparatorModeOnMux(MuxConfig::differential01, highThreshold, lowThreshold, comparatorLatching, comparatorMode, comparatorPolarity, comparatorQueue);
 }
 
-void Ads1115Plus::startComparatorMode03(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching = ComparatorLatchingConfig::nonLatching, ComparatorModeConfig comparatorMode = ComparatorModeConfig::traditionalComparator, ComparatorPolarityConfig comparatorPolarity = ComparatorPolarityConfig::activeLow, ComparatorAssertConfig comparatorQueue = ComparatorAssertConfig::assertAfterOne) {
+void Ads1115Plus::startComparatorMode03(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching, ComparatorModeConfig comparatorMode, ComparatorPolarityConfig comparatorPolarity, ComparatorAssertConfig comparatorQueue) {
     startComparatorModeOnMux(MuxConfig::differential03, highThreshold, lowThreshold, comparatorLatching, comparatorMode, comparatorPolarity, comparatorQueue);
 }
 
-void Ads1115Plus::startComparatorMode13(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching = ComparatorLatchingConfig::nonLatching, ComparatorModeConfig comparatorMode = ComparatorModeConfig::traditionalComparator, ComparatorPolarityConfig comparatorPolarity = ComparatorPolarityConfig::activeLow, ComparatorAssertConfig comparatorQueue = ComparatorAssertConfig::assertAfterOne) {
+void Ads1115Plus::startComparatorMode13(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching, ComparatorModeConfig comparatorMode, ComparatorPolarityConfig comparatorPolarity, ComparatorAssertConfig comparatorQueue) {
     startComparatorModeOnMux(MuxConfig::differential13, highThreshold, lowThreshold, comparatorLatching, comparatorMode, comparatorPolarity, comparatorQueue);
 }
 
-void Ads1115Plus::startComparatorMode23(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching = ComparatorLatchingConfig::nonLatching, ComparatorModeConfig comparatorMode = ComparatorModeConfig::traditionalComparator, ComparatorPolarityConfig comparatorPolarity = ComparatorPolarityConfig::activeLow, ComparatorAssertConfig comparatorQueue = ComparatorAssertConfig::assertAfterOne) {
+void Ads1115Plus::startComparatorMode23(uint16_t highThreshold, uint16_t lowThreshold, ComparatorLatchingConfig comparatorLatching, ComparatorModeConfig comparatorMode, ComparatorPolarityConfig comparatorPolarity, ComparatorAssertConfig comparatorQueue) {
     startComparatorModeOnMux(MuxConfig::differential23, highThreshold, lowThreshold, comparatorLatching, comparatorMode, comparatorPolarity, comparatorQueue);
 }
 
@@ -210,7 +210,7 @@ void Ads1115Plus::startContinousConversionModeOnMux(MuxConfig mux) {
     // set the mux and disable the config
     muxConfig = (uint16_t)mux;
     comparatorAssertConfig = (uint16_t)ComparatorAssertConfig::disableAndSetHighImpedance;
-
+    adsMode = (uint16_t)AdsModeConfig::continuousConversion;
 
     // write the new config
     writeCurrentConfig();
